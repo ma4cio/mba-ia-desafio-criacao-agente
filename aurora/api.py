@@ -13,6 +13,7 @@ from . import storage
 from .agent import root_agent
 
 APP_NAME = "aurora"
+(storage.ROOT / "runtime").mkdir(parents=True, exist_ok=True)
 session_service = DatabaseSessionService(db_url=f"sqlite:///{storage.ROOT / 'runtime' / 'adk.sqlite3'}")
 runner = Runner(agent=root_agent, app_name=APP_NAME, session_service=session_service)
 
